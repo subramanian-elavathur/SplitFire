@@ -1,0 +1,33 @@
+Created by pikle6 on 7/21/2015
+
+This is a concept file with following syntax for each concept.
+# Zip Chunks
+* allow export to zip
+* this file can be imported into SplitFire for reassembly
+
+# Chunk Methodology
+* begin by reading first chunk size byte
+* create reference add it to the document
+* serilize it to directory
+
+# Customizability of Splitfire
+* specify Path
+* + chunkCount
+* + chunkSize
+* + overrideDefaultDirectories
+* + chunkNamePrefix
+* + zipAllChunks
+* + MultiFile mode
+* + Accept List<Document>
+* + specify Configuration
+* + disable Multithreaded Chunking or Reassembly
+* + Json Configuration File
+* + networkOptimizeChunkSize - needs voyager - direct object tranfer - memory intensive handling ?
+
+# networkHandlerSFTP - Voyager
+*
+
+# RestfulServer - Enigma
+*
+
+# directoryWatcher - OverLord
