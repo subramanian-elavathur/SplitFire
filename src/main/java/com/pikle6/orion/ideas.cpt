@@ -5,24 +5,24 @@ This is a concept file with following syntax for each concept.
 * allow export to zip
 * this file can be imported into SplitFire for reassembly
 
-# Chunk Methodology
+# Chunk Methodology - DONE
 * begin by reading first chunk size byte
 * create reference add it to the document
 * serilize it to directory
 
 # Customizability of Splitfire
-* specify Path
-* + chunkCount
-* + chunkSize
-* + overrideDefaultDirectories
+* specify Path - done
+* + chunkCount - done
+* + chunkSize - not done
+* + overrideDefaultDirectories - not done
 * + chunkNamePrefix
-* + zipAllChunks
-* + MultiFile mode
-* + Accept List<Document>
-* + specify Configuration
-* + disable Multithreaded Chunking or Reassembly
-* + Json Configuration File
-* + networkOptimizeChunkSize - needs voyager - direct object tranfer - memory intensive handling ?
+* + zipAllChunks - not done
+* + MultiFile mode - done for reassembly
+* + Accept List<Document> - not done
+* + specify Configuration - not done
+* + disable Multithreaded Chunking or Reassembly  - not done
+* + Json Configuration File - not done
+* + networkOptimizeChunkSize - needs voyager - direct object tranfer - memory intensive handling ? - not done
 
 # networkHandlerSFTP - Voyager
 *

@@ -35,7 +35,7 @@ public class Chunk implements Serializable{
     }
 
     public void setData(byte[] data) {
-        this.data = data;
+        this.data = Arrays.copyOf(data, (int) this.size);
     }
 
     public long getSequenceNumber() {
