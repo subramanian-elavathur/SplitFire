@@ -64,7 +64,7 @@ public class DocumentHelper {
         return null;
     }
 
-    public static void createFile(Engine context, Document document, SortedMap<Long, byte[]> chunkMap){
+    public static void createFile(Engine context, Document document, SortedMap<Long, Path> chunkMap){
         try(
             OutputStream outputStream = new FileOutputStream(
                 context.getOutputDirectory().toFile().getAbsolutePath() +
@@ -72,9 +72,9 @@ public class DocumentHelper {
                 document.getName()
             )
          ) {
-            for (Map.Entry<Long, byte[]> entry : chunkMap.entrySet())
+            for (Map.Entry<Long, Path> entry : chunkMap.entrySet())
             {
-                outputStream.write(entry.getValue());
+                outputStream.write(ChunkHelper.deserializeChunk(entry.getValue()).getData());
             }
         } catch (IOException e) {
             e.printStackTrace();

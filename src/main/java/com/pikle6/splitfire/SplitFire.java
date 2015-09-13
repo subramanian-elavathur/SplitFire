@@ -2,15 +2,17 @@ package com.pikle6.splitfire;
 
 import com.pikle6.splitfire.util.Engine;
 
+import java.nio.file.Paths;
+
 /**
  * main testing class
  *
  */
 public class SplitFire
 {
-    static final String PATH_TO_RAW = "D:\\working\\orion\\samples\\raw\\";
-    static final String PATH_TO_PROCESSED = "D:\\working\\orion\\samples\\processed\\";
-    static final String PATH_TO_CHUNKS = "D:\\working\\orion\\samples\\chunks\\";
+    static final String PATH_TO_RAW = "D:\\working\\SplitFire\\samples\\raw\\";
+    static final String PATH_TO_PROCESSED = "D:\\working\\SplitFire\\samples\\processed\\";
+    static final String PATH_TO_CHUNKS = "D:\\working\\SplitFire\\samples\\chunks\\";
     static final String MUSIC_FILE = "music.mp3";
     static final String IMAGE_FILE = "picture.jpeg";
     static final String EXE_FILE = "md5.exe";

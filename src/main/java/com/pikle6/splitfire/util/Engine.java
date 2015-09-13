@@ -72,11 +72,12 @@ public class Engine {
             Document document = DocumentHelper.deserializeDocument(documentPath);
             SortedMap<Long, ChunkReference> referenceMap = document.getChunkReferenceMap();
             List<Path> chunkPaths = ChunkHelper.getChunkPaths(this, document);
-            SortedMap<Long, byte[]> chunkMap= new TreeMap<>();
+            //SortedMap<Long, byte[]> chunkMap= new TreeMap<>();
+            SortedMap<Long, Path> chunkMap = new TreeMap<>();
             for(Path chunkPath : chunkPaths){
                 Chunk chunk = ChunkHelper.deserializeChunk(chunkPath);
                 if(chunk.getMd5Checksum().equals(referenceMap.get(chunk.getSequenceNumber()).getMd5Checksum())){
-                    chunkMap.put(chunk.getSequenceNumber(), chunk.getData());
+                    chunkMap.put(chunk.getSequenceNumber(), chunkPath);
                 }
                 else{
                     throw new RuntimeException("Checksum validation Failed Try Again");
