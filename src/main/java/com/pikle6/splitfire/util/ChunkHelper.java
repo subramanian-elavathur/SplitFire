@@ -1,8 +1,8 @@
-package com.pikle6.orion.util;
+package com.pikle6.splitfire.util;
 
-import com.pikle6.orion.core.Chunk;
-import com.pikle6.orion.core.ChunkReference;
-import com.pikle6.orion.core.Document;
+import com.pikle6.splitfire.core.Chunk;
+import com.pikle6.splitfire.core.ChunkReference;
+import com.pikle6.splitfire.core.Document;
 
 import java.io.*;
 import java.nio.file.DirectoryStream;
@@ -22,7 +22,7 @@ public class ChunkHelper {
         return !(reference.getChunkSize() == 0L || reference.getMd5Checksum().isEmpty());
     }
 
-    public static void serializeChunk(SplitFire context, Document document, Chunk chunk){
+    public static void serializeChunk(Engine context, Document document, Chunk chunk){
         try(
                 ObjectOutputStream objectStream = new ObjectOutputStream(
                         new FileOutputStream(
@@ -32,7 +32,7 @@ public class ChunkHelper {
                                 chunk.getSequenceNumber() +
                                 getFormattedChunkPartialName(document)
                         )
-                );
+                )
         ) {
             objectStream.writeObject(chunk);
         } catch (IOException e) {
@@ -42,7 +42,7 @@ public class ChunkHelper {
 
     public static Chunk deserializeChunk(Path pathToChunk){
         try(
-            ObjectInputStream objectStream = new ObjectInputStream(Files.newInputStream(pathToChunk));
+            ObjectInputStream objectStream = new ObjectInputStream(Files.newInputStream(pathToChunk))
         ) {
             return (Chunk) objectStream.readObject();
         } catch (IOException e) {
@@ -58,7 +58,7 @@ public class ChunkHelper {
     }
 
     public static String getMD5Hash(byte[] data){
-        MessageDigest md5Hash = null;
+        MessageDigest md5Hash;
         StringBuilder hexString = new StringBuilder();
         try {
             md5Hash = MessageDigest.getInstance("MD5");
@@ -76,7 +76,7 @@ public class ChunkHelper {
         }
     }
 
-    public static List<Path> getChunkPaths(SplitFire context, Document document){
+    public static List<Path> getChunkPaths(Engine context, Document document){
         List<Path> chunkPaths = new ArrayList<>();
         String formattedName = getFormattedChunkPartialName(document);
         try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(context.getChunkDirectory())){

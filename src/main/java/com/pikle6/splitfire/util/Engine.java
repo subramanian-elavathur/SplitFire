@@ -1,8 +1,8 @@
-package com.pikle6.orion.util;
+package com.pikle6.splitfire.util;
 
-import com.pikle6.orion.core.Chunk;
-import com.pikle6.orion.core.ChunkReference;
-import com.pikle6.orion.core.Document;
+import com.pikle6.splitfire.core.Chunk;
+import com.pikle6.splitfire.core.ChunkReference;
+import com.pikle6.splitfire.core.Document;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,13 +15,13 @@ import java.util.*;
  * Created by pikle6 on 7/21/2015.
  * Engine for splitting and reassembly
  */
-public class SplitFire {
+public class Engine {
 
     private Path inputDirectory;
     private Path chunkDirectory;
     private Path outputDirectory;
 
-    public SplitFire(String inputDirectory, String chunkDirectory, String outputDirectory) {
+    public Engine(String inputDirectory, String chunkDirectory, String outputDirectory) {
         this.inputDirectory = Paths.get(inputDirectory);
         this.chunkDirectory = Paths.get(chunkDirectory);
         this.outputDirectory = Paths.get(outputDirectory);
@@ -100,7 +100,7 @@ public class SplitFire {
 
     @Override
     public String toString() {
-        return "SplitFire{" +
+        return "Engine{" +
                 "inputDirectory=" + inputDirectory +
                 ", chunkDirectory=" + chunkDirectory +
                 ", outputDirectory=" + outputDirectory +

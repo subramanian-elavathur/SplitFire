@@ -1,6 +1,6 @@
-package com.pikle6.orion.util;
+package com.pikle6.splitfire.util;
 
-import com.pikle6.orion.core.Document;
+import com.pikle6.splitfire.core.Document;
 
 import java.io.*;
 import java.nio.file.DirectoryStream;
@@ -17,7 +17,7 @@ import java.util.SortedMap;
  */
 public class DocumentHelper {
 
-    public static final long DEFAULT_CHUNK_SIZE = 16384L;
+    public static final long DEFAULT_CHUNK_SIZE = 1048576L;
 
     public static final String DEFAULT_CHUNK_PREFIX = "orion-";
 
@@ -27,16 +27,14 @@ public class DocumentHelper {
 
     public static void isPathValid(Path path){
         if(path.toFile().isFile())
-        {
-            return;
-        }
+        { }
         else
         {
             throw new RuntimeException("No such file. Please check the path specified");
         }
     }
 
-    public static void serializeDocument(SplitFire context, Document document){
+    public static void serializeDocument(Engine context, Document document){
         try(
             ObjectOutputStream objectStream = new ObjectOutputStream(
                 new FileOutputStream(
@@ -45,7 +43,7 @@ public class DocumentHelper {
                         document.getDocumentId() +
                         DocumentHelper.DEFAULT_DOCUMENT_EXTENSION
                 )
-            );
+            )
         ) {
             objectStream.writeObject(document);
         } catch (IOException e) {
@@ -55,7 +53,7 @@ public class DocumentHelper {
 
     public static Document deserializeDocument(Path pathToDocument){
         try(
-            ObjectInputStream objectStream = new ObjectInputStream(Files.newInputStream(pathToDocument));
+            ObjectInputStream objectStream = new ObjectInputStream(Files.newInputStream(pathToDocument))
         ) {
             return (Document) objectStream.readObject();
         } catch (IOException e) {
@@ -66,13 +64,13 @@ public class DocumentHelper {
         return null;
     }
 
-    public static void createFile(SplitFire context, Document document, SortedMap<Long, byte[]> chunkMap){
+    public static void createFile(Engine context, Document document, SortedMap<Long, byte[]> chunkMap){
         try(
             OutputStream outputStream = new FileOutputStream(
                 context.getOutputDirectory().toFile().getAbsolutePath() +
                 "\\" +
                 document.getName()
-            );
+            )
          ) {
             for (Map.Entry<Long, byte[]> entry : chunkMap.entrySet())
             {
@@ -83,7 +81,7 @@ public class DocumentHelper {
         }
     }
 
-    public static List<Path> getDocumentPaths(SplitFire context){
+    public static List<Path> getDocumentPaths(Engine context){
         List<Path> documentPaths = new ArrayList<>();
         try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(context.getChunkDirectory())){
             for (Path path : directoryStream) {

@@ -1,4 +1,4 @@
-package com.pikle6.orion.core;
+package com.pikle6.splitfire.core;
 
 import java.io.Serializable;
 import java.util.Arrays;

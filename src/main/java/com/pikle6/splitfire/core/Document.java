@@ -1,7 +1,6 @@
-package com.pikle6.orion.core;
+package com.pikle6.splitfire.core;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.pikle6.orion.util.DocumentHelper;
+import com.pikle6.splitfire.util.DocumentHelper;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -50,7 +49,7 @@ public class Document implements Serializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }*/
-        this.chunkReferenceMap = new TreeMap<Long, ChunkReference>();
+        this.chunkReferenceMap = new TreeMap<>();
         this.setNameAndExtension(filePath);
     }
 
@@ -82,7 +81,7 @@ public class Document implements Serializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }*/
-        this.chunkReferenceMap = new TreeMap<Long, ChunkReference>();
+        this.chunkReferenceMap = new TreeMap<>();
         this.setNameAndExtension(filePath);
     }
 
@@ -114,7 +113,7 @@ public class Document implements Serializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }*/
-        this.chunkReferenceMap = new TreeMap<Long, ChunkReference>();
+        this.chunkReferenceMap = new TreeMap<>();
         this.setNameAndExtension(filePath);
     }
 
@@ -146,7 +145,7 @@ public class Document implements Serializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }*/
-        this.chunkReferenceMap = new TreeMap<Long, ChunkReference>();
+        this.chunkReferenceMap = new TreeMap<>();
         this.setNameAndExtension(filePath);
     }
 
@@ -190,57 +189,46 @@ public class Document implements Serializable {
         this.md5Checksum = md5Checksum;
     }
 
-    @JsonProperty
     public long getDocumentId() {
         return documentId;
     }
 
-    @JsonProperty
     public String getName() {
         return name;
     }
 
-    @JsonProperty
     public String getExtension() {
         return extension;
     }
 
-    @JsonProperty
     public String getMd5Checksum() {
         return md5Checksum;
     }
 
-    @JsonProperty
     public String getFilePath() {
         return filePath;
     }
 
-    @JsonProperty
     public long getFileSize() {
         return fileSize;
     }
 
-    @JsonProperty
     public long getChunkCount() {
         return chunkCount;
     }
 
-    @JsonProperty
     public long getChunkSize() {
         return chunkSize;
     }
 
-    @JsonProperty
     public SortedMap<Long, ChunkReference> getChunkReferenceMap() {
         return chunkReferenceMap;
     }
 
-    @JsonProperty
     public String getChunkPrefix() {
         return chunkPrefix;
     }
 
-    @JsonProperty
     public String getChunkExtension() {
         return chunkExtension;
     }

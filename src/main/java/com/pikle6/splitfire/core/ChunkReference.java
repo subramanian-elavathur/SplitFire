@@ -1,6 +1,4 @@
-package com.pikle6.orion.core;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
+package com.pikle6.splitfire.core;
 
 import java.io.Serializable;
 
@@ -19,22 +17,18 @@ public class ChunkReference implements Serializable {
         this.chunkSize = chunkSize;
     }
 
-    @JsonProperty
     public String getMd5Checksum() {
         return this.md5Checksum;
     }
 
-    @JsonProperty
     public void setMd5Checksum(String md5Checksum) {
         this.md5Checksum = md5Checksum;
     }
 
-    @JsonProperty
     public long getChunkSize() {
         return this.chunkSize;
     }
 
-    @JsonProperty
     public void setChunkSize(long chunkSize) {
         this.chunkSize = chunkSize;
     }

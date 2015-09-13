@@ -1,13 +1,13 @@
-package com.pikle6.orion;
+package com.pikle6.splitfire;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple Orion.
+ * Unit test for simple Engine.
  */
-public class OrionTest
+public class SplitFireTest
     extends TestCase
 {
     /**
@@ -15,7 +15,7 @@ public class OrionTest
      *
      * @param testName name of the test case
      */
-    public OrionTest(String testName)
+    public SplitFireTest(String testName)
     {
         super( testName );
     }
@@ -25,7 +25,7 @@ public class OrionTest
      */
     public static Test suite()
     {
-        return new TestSuite( OrionTest.class );
+        return new TestSuite( SplitFireTest.class );
     }
 
     /**
