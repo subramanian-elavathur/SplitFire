@@ -126,3 +126,7 @@ Things that might come next:
 - Split and reassemble several files in parallel.
 - Transfer chunks over the network (SFTP), serve them from a REST server, and watch directories to reassemble files
   as their chunks arrive.
+
+## License
+
+SplitFire is released under the [MIT License](LICENSE).
