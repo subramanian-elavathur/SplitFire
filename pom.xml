@@ -13,6 +13,14 @@
   <description>Split files into checksummed chunks and reassemble them.</description>
   <url>https://github.com/subramanian-elavathur/SplitFire</url>
 
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://opensource.org/license/mit</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
   <scm>
     <url>https://github.com/subramanian-elavathur/SplitFire</url>
     <connection>scm:git:https://github.com/subramanian-elavathur/SplitFire.git</connection>
